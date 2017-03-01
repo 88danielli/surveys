@@ -1,0 +1,19 @@
+        <a href="#!/create">Create a New Poll</a> |  <a href="" ng-click="logout()">Logout</a>
+
+<h2>Current Polls:</h2>
+<form ng-submit="search()"><input type="text" placeholder="Search" ng-model="searchString"></form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Survey Question</th>
+        <th>Date Posted</th>
+        <th>Action</th>
+    </tr>
+    <tr ng-repeat="survey in surveys">
+        <td ng-bind="survey.user"></td>
+        <td><a href="#!/survey/{{survey._id}}">{{survey.question}}?</a></td>
+        <td ng-bind="survey.createdAt | date: 'longDate'"></td>
+        <td><a href="" ng-click="delete(survey)" ng-show="user == survey.user">Delete</a></td>
+    </tr>
+</table>
